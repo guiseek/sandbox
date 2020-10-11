@@ -543,7 +543,7 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/nest"
+    "defaultCollection": "@nrwl/angular"
   },
   "defaultProject": "api",
   "schematics": {
