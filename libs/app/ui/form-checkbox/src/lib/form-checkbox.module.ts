@@ -5,6 +5,10 @@ import { CheckboxComponent } from './checkbox/checkbox.component'
 import { CheckboxGroupComponent } from './checkbox-group/checkbox-group.component'
 import { CheckboxItemComponent } from './checkbox-item/checkbox-item.component'
 
+export * from './checkbox/checkbox.component'
+export * from './checkbox-group/checkbox-group.component'
+export * from './checkbox-item/checkbox-item.component'
+
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule],
   declarations: [CheckboxComponent, CheckboxGroupComponent, CheckboxItemComponent],

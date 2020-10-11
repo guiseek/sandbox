@@ -16,12 +16,20 @@ import { AppDataAccessCoreService } from '@sandbox/app/data-access-core'
             </form-checkbox>
 
             <form-checkbox-group formArrayName="group">
-              <form-checkbox-item value="Gui 1">Gui 1</form-checkbox-item>
-              <form-checkbox-item value="Gui 2">Gui 2</form-checkbox-item>
-              <form-checkbox-item value="Gui 3">Gui 3</form-checkbox-item>
+              <form-checkbox-item value="Hackfest 1">Hackfest 1</form-checkbox-item>
+              <form-checkbox-item value="Hackfest 2">Hackfest 2</form-checkbox-item>
+              <form-checkbox-item value="Hackfest 3">Hackfest 3</form-checkbox-item>
+              <form-checkbox-item value="Hackfest 4">Hackfest 4</form-checkbox-item>
             </form-checkbox-group>
+
+            <pre>{{ form.value | json }}</pre>
+
+            <form-radio formControlName="radio">
+              <form-radio-option value="opção 1">Opção 1</form-radio-option>
+              <form-radio-option value="opção 2">Opção 2</form-radio-option>
+              <form-radio-option value="opção 3">Opção 3</form-radio-option>
+            </form-radio>
           </form>
-          <pre>{{ form.value | json }}</pre>
         </div>
         <div class="card-footer">Server uptime: {{ uptime$ | async }}</div>
       </div>
@@ -34,6 +42,7 @@ export class AppFeatureDashboardComponent {
   form: FormGroup = this.fb.group({
     check: [true],
     group: this.fb.array([]),
+    radio: [],
   })
 
   constructor(private readonly data: AppDataAccessCoreService, private fb: FormBuilder) {}

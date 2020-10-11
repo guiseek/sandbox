@@ -1,7 +1,7 @@
 {
   "npmScope": "sandbox",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "angular.json": "*",
@@ -76,6 +76,9 @@
       "tags": ["scope:app", "type:style"]
     },
     "app-ui-form-checkbox": {
+      "tags": ["type:ui", "scope:app"]
+    },
+    "app-ui-form-radio": {
       "tags": ["type:ui", "scope:app"]
     }
   }

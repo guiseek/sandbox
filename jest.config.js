@@ -7,7 +7,6 @@ module.exports = {
     '<rootDir>/libs/api/data-access-core',
     '<rootDir>/libs/api/feature-core',
     '<rootDir>/apps/app',
-    '<rootDir>/libs/app/assets',
     '<rootDir>/libs/app/data-access-core',
     '<rootDir>/libs/app/feature-about',
     '<rootDir>/libs/app/feature-core',
@@ -17,5 +16,6 @@ module.exports = {
     '<rootDir>/libs/app/style',
     '<rootDir>/libs/app/feature-auth',
     '<rootDir>/libs/app/ui/form-checkbox',
+    '<rootDir>/libs/app/ui/form-radio',
   ],
 }

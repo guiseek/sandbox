@@ -540,6 +540,44 @@
           "style": "scss"
         }
       }
+    },
+    "app-ui-form-radio": {
+      "projectType": "library",
+      "root": "libs/app/ui/form-radio",
+      "sourceRoot": "libs/app/ui/form-radio/src",
+      "prefix": "form",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/app/ui/form-radio/tsconfig.lib.json",
+            "project": "libs/app/ui/form-radio/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/app/ui/form-radio/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/app/ui/form-radio/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app/ui/form-radio/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

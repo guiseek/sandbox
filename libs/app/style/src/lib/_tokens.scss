@@ -1,0 +1,255 @@
+/* Clean Stack Sandbox */
+
+@import 'make-color-palette';
+
+:root {
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Color tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-color-primary-hue: 203;
+  --cs-color-primary-saturation: 100%;
+  --cs-color-primary-text: var(--cs-color-white);
+
+  --cs-color-success-hue: 110;
+  --cs-color-success-saturation: 70%;
+  --cs-color-success-text: var(--cs-color-white);
+
+  --cs-color-info-hue: var(--cs-color-primary-hue);
+  --cs-color-info-saturation: 10%;
+  --cs-color-info-text: var(--cs-color-white);
+
+  --cs-color-warning-hue: 40;
+  --cs-color-warning-saturation: 90%;
+  --cs-color-warning-text: var(--cs-color-white);
+
+  --cs-color-danger-hue: 10;
+  --cs-color-danger-saturation: 95%;
+  --cs-color-danger-text: var(--cs-color-white);
+
+  --cs-color-gray-hue: var(--cs-color-primary-hue);
+  --cs-color-gray-saturation: 10%;
+  --cs-color-gray-text: var(--cs-color-white);
+
+  --cs-color-white: white;
+  --cs-color-black: black;
+
+  @include make-color-palette('primary');
+  @include make-color-palette('success');
+  @include make-color-palette('info');
+  @include make-color-palette('warning');
+  @include make-color-palette('danger');
+  @include make-color-palette('gray');
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Border radius tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-border-radius-small: 0.125rem; // 2px
+  --cs-border-radius-medium: 0.25rem; // 4px
+  --cs-border-radius-large: 0.5rem; // 8px
+  --cs-border-radius-x-large: 1rem; // 16px
+
+  --cs-border-radius-circle: 50%;
+  --cs-border-radius-pill: 9999px;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Elevation tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-shadow-x-small: 0 1px 0 rgba(0, 0, 0, 0.05);
+  --cs-shadow-small: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --cs-shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --cs-shadow-large: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --cs-shadow-x-large: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Spacing tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-spacing-xxx-small: 0.125rem; // 2px
+  --cs-spacing-xx-small: 0.25rem; // 4px
+  --cs-spacing-x-small: 0.5rem; // 8px
+  --cs-spacing-small: 0.75rem; // 12px
+  --cs-spacing-medium: 1rem; // 16px
+  --cs-spacing-large: 1.25rem; // 20px
+  --cs-spacing-x-large: 1.75rem; // 28px
+  --cs-spacing-xx-large: 2.25rem; // 36px
+  --cs-spacing-xxx-large: 3rem; // 48px
+  --cs-spacing-xxxx-large: 4.5rem; // 72px
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Transition tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-transition-x-slow: 1000ms;
+  --cs-transition-slow: 500ms;
+  --cs-transition-medium: 250ms;
+  --cs-transition-fast: 150ms;
+  --cs-transition-x-fast: 50ms;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Typography tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Fonts
+  --cs-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  --cs-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --cs-font-serif: Georgia, 'Times New Roman', serif;
+
+  // Font sizes
+  --cs-font-size-xx-small: 0.625rem; // 10px
+  --cs-font-size-x-small: 0.75rem; // 12px
+  --cs-font-size-small: 0.875rem; // 14px
+  --cs-font-size-medium: 1rem; // 16px
+  --cs-font-size-large: 1.25rem; // 20px
+  --cs-font-size-x-large: 1.5rem; // 24px
+  --cs-font-size-xx-large: 2.25rem; // 36px
+  --cs-font-size-xxx-large: 3rem; // 48px
+  --cs-font-size-xxxx-large: 4.5rem; // 72px
+
+  // Font weights
+  --cs-font-weight-light: 300;
+  --cs-font-weight-normal: 400;
+  --cs-font-weight-semibold: 500;
+  --cs-font-weight-bold: 700;
+
+  // Letter spacings
+  --cs-letter-spacing-dense: -0.015em;
+  --cs-letter-spacing-normal: normal;
+  --cs-letter-spacing-loose: 0.075em;
+
+  // Line heights
+  --cs-line-height-dense: 1.4;
+  --cs-line-height-normal: 1.8;
+  --cs-line-height-loose: 2.2;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Form tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Focus ring
+  --cs-focus-ring-hue: var(--cs-color-primary-hue);
+  --cs-focus-ring-saturation: var(--cs-color-primary-saturation);
+  --cs-focus-ring-lightness: 50%;
+  --cs-focus-ring-alpha: 0.33;
+  --cs-focus-ring-width: 3px;
+  --cs-focus-ring-box-shadow: 0 0 0 var(--cs-focus-ring-width)
+    hsla(
+      var(--cs-focus-ring-hue),
+      var(--cs-focus-ring-saturation),
+      var(--cs-focus-ring-lightness),
+      var(--cs-focus-ring-alpha)
+    );
+  --cs-focus-ring-box-shadow-inset: inset 0 0 0 var(--cs-focus-ring-width)
+    hsla(
+      var(--cs-focus-ring-hue),
+      var(--cs-focus-ring-saturation),
+      var(--cs-focus-ring-lightness),
+      var(--cs-focus-ring-alpha)
+    );
+
+  // Buttons
+  --cs-button-font-size-small: var(--cs-font-size-x-small);
+  --cs-button-font-size-medium: var(--cs-font-size-small);
+  --cs-button-font-size-large: var(--cs-font-size-medium);
+
+  // Inputs
+  --cs-input-height-small: 30px;
+  --cs-input-height-medium: 40px;
+  --cs-input-height-large: 50px;
+
+  --cs-input-background-color: var(--cs-color-white);
+  --cs-input-background-color-hover: var(--cs-color-white);
+  --cs-input-background-color-focus: var(--cs-color-white);
+  --cs-input-background-color-disabled: var(--cs-color-gray-95);
+
+  --cs-input-border-color: var(--cs-color-gray-80);
+  --cs-input-border-color-hover: var(--cs-color-gray-70);
+  --cs-input-border-color-focus: var(--cs-color-primary-50);
+  --cs-input-border-color-disabled: var(--cs-color-gray-80);
+  --cs-input-border-color-valid: var(--cs-color-success-50);
+  --cs-input-border-color-invalid: var(--cs-color-danger-50);
+  --cs-input-border-width: 1px;
+
+  --cs-input-border-radius-small: 4px;
+  --cs-input-border-radius-medium: 4px;
+  --cs-input-border-radius-large: 4px;
+
+  --cs-input-font-family: var(--cs-font-sans);
+  --cs-input-font-weight: var(--cs-font-weight-normal);
+  --cs-input-font-size-small: var(--cs-font-size-small);
+  --cs-input-font-size-medium: var(--cs-font-size-medium);
+  --cs-input-font-size-large: var(--cs-font-size-large);
+  --cs-input-letter-spacing: var(--cs-letter-spacing-normal);
+
+  --cs-input-color: var(--cs-color-gray-30);
+  --cs-input-color-hover: var(--cs-color-gray-30);
+  --cs-input-color-focus: var(--cs-color-gray-30);
+  --cs-input-color-disabled: var(--cs-color-gray-10);
+  --cs-input-color-valid: var(--cs-color-success-40);
+  --cs-input-color-invalid: var(--cs-color-danger-40);
+
+  --cs-input-icon-color: var(--cs-color-gray-60);
+  --cs-input-icon-color-hover: var(--cs-color-gray-40);
+  --cs-input-icon-color-focus: var(--cs-color-gray-40);
+
+  --cs-input-placeholder-color: var(--cs-color-gray-60);
+  --cs-input-placeholder-color-disabled: var(--cs-color-gray-40);
+
+  --cs-input-spacing-small: 10px;
+  --cs-input-spacing-medium: 12px;
+  --cs-input-spacing-large: 14px;
+
+  // Labels
+  --cs-input-label-font-size-small: var(--cs-font-size-small);
+  --cs-input-label-font-size-medium: var(--cs-font-size-medium);
+  --cs-input-label-font-size-large: var(--cs-font-size-large);
+
+  --cs-input-label-color: inherit;
+  --cs-input-label-color-valid: inherit;
+  --cs-input-label-color-invalid: inherit;
+
+  // Help text
+  --cs-input-help-text-font-size-small: var(--cs-font-size-x-small);
+  --cs-input-help-text-font-size-medium: var(--cs-font-size-small);
+  --cs-input-help-text-font-size-large: var(--cs-font-size-medium);
+
+  --cs-input-help-text-color: var(--cs-color-gray-60);
+  --cs-input-help-text-color-valid: var(--cs-color-success-40);
+  --cs-input-help-text-color-invalid: var(--cs-color-danger-40);
+
+  // Toggles (checkboxes, radios, switches)
+  --cs-toggle-size: 16px;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Overlay tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-overlay-background-color: hsla(var(--cs-color-gray-hue), var(--cs-color-gray-saturation), 20%, 0.5);
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Tooltip tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-tooltip-border-radius: var(--cs-border-radius-medium);
+  --cs-tooltip-background-color: var(--cs-color-gray-10);
+  --cs-tooltip-color: var(--cs-color-white);
+  --cs-tooltip-font-family: var(--cs-font-sans);
+  --cs-tooltip-font-weight: var(--cs-font-weight-normal);
+  --cs-tooltip-font-size: var(--cs-font-size-small);
+  --cs-tooltip-line-height: var(--cs-line-height-normal);
+  --cs-tooltip-padding: var(--cs-spacing-xxx-small) var(--cs-spacing-x-small);
+  --cs-tooltip-arrow-size: 5px;
+  --cs-tooltip-arrow-start-end-offset: 8px;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Z-index tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --cs-z-index-drawer: 700;
+  --cs-z-index-dialog: 800;
+  --cs-z-index-dropdown: 900;
+  --cs-z-index-tooltip: 1000;
+}

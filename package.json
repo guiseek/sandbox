@@ -94,6 +94,7 @@
     "@graphql-codegen/typescript-operations": "1.17.8",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
+    "@ngneat/spectator": "^6.0.0",
     "@nrwl/angular": "^10.3.0",
     "@nrwl/cli": "10.3.0",
     "@nrwl/cypress": "10.3.0",

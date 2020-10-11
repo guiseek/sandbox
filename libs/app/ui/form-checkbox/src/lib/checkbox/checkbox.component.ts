@@ -57,7 +57,7 @@ let nextId = 0
       </label>
     </div>
   `,
-  styleUrls: ['../checkbox-styles.scss'],
+  styleUrls: ['../checkbox.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [FormCheckbox, FormCheckboxProvider],
 })

@@ -1,10 +1,7 @@
 import { takeUntil } from 'rxjs/operators'
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
-  ViewChild,
-  ElementRef,
   Input,
   OnDestroy,
   ContentChildren,
@@ -36,21 +33,18 @@ let nextId = 0
 
 @Component({
   selector: 'form-checkbox-group',
+
   template: `
-    <div class="form-checkbox-group" #group [id]="id">
+    <div class="form-checkbox-group" [id]="id">
       <ng-content></ng-content>
     </div>
   `,
   providers: [FormCheckboxGroup, FormCheckboxProvider],
+
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxGroupComponent extends FormCheckboxGroup
-  implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
+export class CheckboxGroupComponent extends FormCheckboxGroup implements AfterContentInit, AfterViewInit, OnDestroy {
   destroy$ = new Subject<void>()
-  @ViewChild('group', { static: true }) _el: ElementRef<HTMLDivElement>
-  get el() {
-    return this._el.nativeElement
-  }
 
   @ContentChildren(CheckboxItemComponent) checkboxItems: QueryList<CheckboxItemComponent>
 
@@ -59,13 +53,12 @@ export class CheckboxGroupComponent extends FormCheckboxGroup
   public get id(): string {
     return this._id
   }
-  @Input()
-  public set id(value: string) {
+
+  @Input() public set id(value: string) {
     this._id = value
   }
 
-  @Output()
-  valueChange = new EventEmitter<any>()
+  @Output() valueChange = new EventEmitter<any>()
 
   control: AbstractControl
 
@@ -77,13 +70,14 @@ export class CheckboxGroupComponent extends FormCheckboxGroup
     super()
   }
 
-  ngOnInit(): void {}
-
   ngAfterContentInit() {
     this.control = this.ngControl?.control ? this.ngControl?.control : new FormArray([])
 
     this.checkboxItems.map((item) => {
-      item.checkboxChange.pipe(takeUntil(this.destroy$)).subscribe(this.onItemChange.bind(this))
+      item.checkboxChange
+        .pipe(takeUntil(this.destroy$))
+
+        .subscribe(this.onItemChange.bind(this))
     })
   }
 

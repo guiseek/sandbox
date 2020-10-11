@@ -30,7 +30,8 @@
       "@sandbox/app/feature-shell": ["libs/app/feature-shell/src/index.ts"],
       "@sandbox/app/layout": ["libs/app/layout/src/index.ts"],
       "@sandbox/app/style": ["libs/app/style/src/index.ts"],
-      "@sandbox/form-checkbox": ["libs/app/ui/form-checkbox/src/index.ts"]
+      "@sandbox/form-checkbox": ["libs/app/ui/form-checkbox/src/index.ts"],
+      "@sandbox/form-radio": ["libs/app/ui/form-radio/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
