@@ -79,6 +79,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.5",
     "supertest": "^5.0.0",
+    "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
@@ -117,6 +118,7 @@
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.1",
     "lint-staged": "^10.4.0",
+    "ng-packagr": "^10.1.0",
     "prettier": "2.0.4",
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
