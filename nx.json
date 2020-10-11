@@ -22,5 +22,58 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "api": {
+      "tags": []
+    },
+    "api-data-access-auth": {
+      "tags": ["scope:api", "type:data-access"]
+    },
+    "api-data-access-core": {
+      "tags": ["scope:api", "type:data-access"]
+    },
+    "api-e2e": {
+      "tags": []
+    },
+    "api-feature-auth": {
+      "tags": ["scope:api", "type:feature"]
+    },
+    "api-feature-core": {
+      "tags": ["scope:api", "type:feature"]
+    },
+    "app": {
+      "tags": []
+    },
+    "app-assets": {
+      "tags": ["scope:app", "type:assets"]
+    },
+    "app-data-access-core": {
+      "tags": ["scope:app", "type:data-access"]
+    },
+    "app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["app"]
+    },
+    "app-feature-about": {
+      "tags": ["scope:app", "type:feature"]
+    },
+    "app-feature-auth": {
+      "tags": ["scope:app", "type:feature"]
+    },
+    "app-feature-core": {
+      "tags": ["scope:app", "type:feature"]
+    },
+    "app-feature-dashboard": {
+      "tags": ["scope:app", "type:feature"]
+    },
+    "app-feature-shell": {
+      "tags": ["scope:app", "type:feature"]
+    },
+    "app-layout": {
+      "tags": ["scope:app", "type:layout"]
+    },
+    "app-style": {
+      "tags": ["scope:app", "type:style"]
+    }
+  }
 }
