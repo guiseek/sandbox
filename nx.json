@@ -74,6 +74,9 @@
     },
     "app-style": {
       "tags": ["scope:app", "type:style"]
+    },
+    "app-ui-form-checkbox": {
+      "tags": ["type:ui", "scope:app"]
     }
   }
 }

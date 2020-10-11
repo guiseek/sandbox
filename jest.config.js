@@ -16,5 +16,6 @@ module.exports = {
     '<rootDir>/libs/app/layout',
     '<rootDir>/libs/app/style',
     '<rootDir>/libs/app/feature-auth',
+    '<rootDir>/libs/app/ui/form-checkbox',
   ],
 }
