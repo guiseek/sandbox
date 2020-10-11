@@ -545,7 +545,7 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
-  "defaultProject": "api",
+  "defaultProject": "app",
   "schematics": {
     "@nrwl/angular:application": {
       "unitTestRunner": "jest",
