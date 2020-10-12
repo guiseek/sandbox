@@ -7,9 +7,13 @@
   // Color tokens
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --cs-color-primary-hue: 203;
+  --cs-color-primary-hue: 354;
   --cs-color-primary-saturation: 100%;
   --cs-color-primary-text: var(--cs-color-white);
+
+  --cs-color-secondary-hue: 201;
+  --cs-color-secondary-saturation: 100%;
+  --cs-color-secondary-text: var(--cs-color-white);
 
   --cs-color-success-hue: 110;
   --cs-color-success-saturation: 70%;
@@ -35,6 +39,7 @@
   --cs-color-black: black;
 
   @include make-color-palette('primary');
+  @include make-color-palette('secondary');
   @include make-color-palette('success');
   @include make-color-palette('info');
   @include make-color-palette('warning');

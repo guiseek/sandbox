@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core'
   selector: 'layout-footer',
   template: `
     <footer class="d-flex justify-content-center p-1 bg-dark navbar-dark" *ngIf="html">
-      <small class="text-muted" [innerHTML]="html"></small>
+      <small [innerHTML]="html"></small>
     </footer>
   `,
 })

@@ -9,6 +9,8 @@ exports[`CheckboxComponent Host Views should display checkbox with custom id 1`]
     class="ng-untouched ng-pristine ng-valid"
     id="x"
     name="checkbox"
+    role="checkbox"
+    tabindex="0"
     type="checkbox"
     value="undefined"
   />
@@ -36,6 +38,8 @@ exports[`CheckboxComponent Host Views should display checkbox with label 1`] = `
     class="ng-untouched ng-pristine ng-valid"
     id="form-checkbox-1"
     name="checkbox"
+    role="checkbox"
+    tabindex="0"
     type="checkbox"
     value="undefined"
   />
@@ -64,6 +68,8 @@ exports[`CheckboxComponent Host Views should display only input 1`] = `
     class="ng-untouched ng-pristine ng-valid"
     id="form-checkbox-0"
     name="checkbox"
+    role="checkbox"
+    tabindex="0"
     type="checkbox"
     value="undefined"
   />

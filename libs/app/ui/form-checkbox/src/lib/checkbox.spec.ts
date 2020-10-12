@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { ReactiveFormsModule, FormControl, FormArray } from '@angular/forms'
 import { Spectator, SpectatorHost, createHostFactory, createComponentFactory } from '@ngneat/spectator'
 
-import { CheckboxComponent } from './checkbox/checkbox.component'
+import { CheckboxComponent } from './checkbox.component'
 
 const VIEWS = {
   onlyCheck: `<form-checkbox [formControl]="check"></form-checkbox>`,

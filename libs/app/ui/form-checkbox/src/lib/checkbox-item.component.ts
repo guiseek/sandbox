@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core'
-import { EventInputTarget } from '../event-input'
+import { EventInputTarget } from './event-input'
 
 let nextId = 0
 
@@ -11,6 +11,8 @@ let nextId = 0
         [id]="id"
         type="checkbox"
         name="checkboxes"
+        role="checkbox"
+        tabindex="0"
         [value]="value"
         [attr.aria-checked]="el?.checked"
         [attr.disabled]="disabled"
@@ -26,7 +28,7 @@ let nextId = 0
       </label>
     </div>
   `,
-  styleUrls: ['../checkbox.scss'],
+  styleUrls: ['./checkbox.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxItemComponent {

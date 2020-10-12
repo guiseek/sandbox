@@ -1,8 +1,9 @@
-import { FormControlAccessor } from './../control-accessor'
-import { takeUntil } from 'rxjs/operators'
+import { AbstractControl, FormControl, NgControl, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { CheckboxValueAccessor } from './checkbox-value-accessor'
+import { EventInputTarget } from './event-input'
+import { Subject } from 'rxjs'
 import {
   AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -11,22 +12,18 @@ import {
   Injectable,
   Input,
   OnDestroy,
-  OnInit,
   Optional,
   Output,
   Self,
   ViewChild,
 } from '@angular/core'
-import { AbstractControl, FormControl, NgControl, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Subject } from 'rxjs'
-import { EventInputTarget } from '../event-input'
 
 @Injectable()
-export class FormCheckbox extends FormControlAccessor {}
+export class CheckboxAccessor extends CheckboxValueAccessor {}
 
-const FormCheckboxProvider = {
+const CheckboxProvider = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => FormCheckbox),
+  useExisting: forwardRef(() => CheckboxAccessor),
   multi: true,
 }
 
@@ -40,6 +37,8 @@ let nextId = 0
         [id]="id"
         type="checkbox"
         name="checkbox"
+        role="checkbox"
+        tabindex="0"
         [value]="value"
         [checked]="el?.checked"
         [attr.aria-checked]="el?.checked"
@@ -57,11 +56,11 @@ let nextId = 0
       </label>
     </div>
   `,
-  styleUrls: ['../checkbox.scss'],
+  styleUrls: ['./checkbox.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [FormCheckbox, FormCheckboxProvider],
+  providers: [CheckboxAccessor, CheckboxProvider],
 })
-export class CheckboxComponent extends FormCheckbox implements AfterContentInit, OnDestroy {
+export class CheckboxComponent extends CheckboxAccessor implements AfterContentInit, OnDestroy {
   destroy$ = new Subject<void>()
 
   @ViewChild('input', { static: true }) _el: ElementRef<HTMLInputElement>
@@ -96,7 +95,7 @@ export class CheckboxComponent extends FormCheckbox implements AfterContentInit,
   valueChange = new EventEmitter<any>()
 
   @Output()
-  checkedChange = new EventEmitter<boolean>()
+  checkedChange = new EventEmitter<CheckboxComponent>()
 
   control: AbstractControl
 
@@ -109,8 +108,10 @@ export class CheckboxComponent extends FormCheckbox implements AfterContentInit,
   }
 
   onChangeEvent({ target }: EventInputTarget) {
-    this.onChange(target.value)
-    this.checkedChange.emit(target.checked)
+    if (target.value) {
+      this.onChange(target.value)
+    }
+    this.checkedChange.emit(this)
     this.valueChange.emit(target.value)
   }
 

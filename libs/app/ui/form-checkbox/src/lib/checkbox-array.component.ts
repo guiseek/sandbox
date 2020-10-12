@@ -1,4 +1,8 @@
+import { AbstractControl, ControlContainer, FormArray, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { CheckboxItemComponent } from './checkbox-item.component'
+import { CheckboxValueAccessor } from './checkbox-value-accessor'
 import { takeUntil } from 'rxjs/operators'
+import { Subject } from 'rxjs'
 import {
   Component,
   ChangeDetectionStrategy,
@@ -14,41 +18,44 @@ import {
   Optional,
   Self,
   AfterViewInit,
+  ContentChild,
 } from '@angular/core'
-import { AbstractControl, ControlContainer, FormArray, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Subject } from 'rxjs'
-import { CheckboxItemComponent } from '../checkbox-item/checkbox-item.component'
-import { FormControlAccessor } from '../control-accessor'
+import { CheckboxLabelComponent } from './checkbox-label.component'
 
 @Injectable()
-export class FormCheckboxGroup extends FormControlAccessor {}
+export class CheckboxArrayAccessor extends CheckboxValueAccessor {}
 
-const FormCheckboxProvider = {
+const CheckboxArrayProvider = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => CheckboxGroupComponent),
+  useExisting: forwardRef(() => CheckboxArrayComponent),
   multi: true,
 }
 
 let nextId = 0
 
 @Component({
-  selector: 'form-checkbox-group',
-
+  selector: 'form-checkbox-array',
   template: `
-    <div class="form-checkbox-group" [id]="id">
-      <ng-content></ng-content>
+    <div class="form-checkbox-array">
+      <ng-content select="h3"></ng-content>
+      <div role="group" [attr.aria-labelledby]="id">
+        <ng-content></ng-content>
+      </div>
     </div>
   `,
-  providers: [FormCheckboxGroup, FormCheckboxProvider],
+  providers: [CheckboxArrayAccessor, CheckboxArrayProvider],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxGroupComponent extends FormCheckboxGroup implements AfterContentInit, AfterViewInit, OnDestroy {
+export class CheckboxArrayComponent extends CheckboxArrayAccessor
+  implements AfterContentInit, AfterViewInit, OnDestroy {
   destroy$ = new Subject<void>()
+
+  @ContentChild(CheckboxLabelComponent) checkboxLabel: CheckboxLabelComponent
 
   @ContentChildren(CheckboxItemComponent) checkboxItems: QueryList<CheckboxItemComponent>
 
-  private _id: string = `form-checkbox-group-${nextId++}`
+  private _id: string = `form-checkbox-array-${nextId++}`
 
   public get id(): string {
     return this._id
@@ -73,12 +80,18 @@ export class CheckboxGroupComponent extends FormCheckboxGroup implements AfterCo
   ngAfterContentInit() {
     this.control = this.ngControl?.control ? this.ngControl?.control : new FormArray([])
 
-    this.checkboxItems.map((item) => {
-      item.checkboxChange
-        .pipe(takeUntil(this.destroy$))
+    if (this.checkboxLabel) {
+      this.checkboxLabel.el.id = this.id
+    }
 
-        .subscribe(this.onItemChange.bind(this))
-    })
+    if (this.checkboxItems?.length) {
+      this.checkboxItems.map((item) => {
+        item.checkboxChange
+          .pipe(takeUntil(this.destroy$))
+
+          .subscribe(this.onItemChange.bind(this))
+      })
+    }
   }
 
   onItemChange({ checked, value }) {

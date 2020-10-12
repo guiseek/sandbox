@@ -1,6 +1,6 @@
 import { ControlValueAccessor } from '@angular/forms'
 
-export class FormControlAccessor implements ControlValueAccessor {
+export class CheckboxValueAccessor implements ControlValueAccessor {
   protected _value: any
   protected _disabled: boolean
 
@@ -13,6 +13,7 @@ export class FormControlAccessor implements ControlValueAccessor {
 
   writeValue(obj: any): void {
     if (obj) {
+      this._value = obj
     }
   }
   registerOnChange(fn: any): void {
