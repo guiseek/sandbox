@@ -21,6 +21,7 @@
       "@sandbox/api/data-access-core": ["libs/api/data-access-core/src/index.ts"],
       "@sandbox/api/feature-auth": ["libs/api/feature-auth/src/index.ts"],
       "@sandbox/api/feature-core": ["libs/api/feature-core/src/index.ts"],
+      "@sandbox/app-ui-form": ["libs/app/ui/form/src/index.ts"],
       "@sandbox/app/assets": ["libs/app/assets/src/index.ts"],
       "@sandbox/app/data-access-core": ["libs/app/data-access-core/src/index.ts"],
       "@sandbox/app/feature-about": ["libs/app/feature-about/src/index.ts"],

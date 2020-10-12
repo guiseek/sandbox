@@ -1,0 +1,10 @@
+{
+  "extends": "../../../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", ["form", "sandbox", "checkbox"], "camelCase"],
+    "component-selector": [true, "element", ["form", "sandbox", "checkbox"], "kebab-case"]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}

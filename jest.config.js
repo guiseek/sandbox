@@ -17,5 +17,6 @@ module.exports = {
     '<rootDir>/libs/app/feature-auth',
     '<rootDir>/libs/app/ui/form-checkbox',
     '<rootDir>/libs/app/ui/form-radio',
+    '<rootDir>/libs/app/ui/form',
   ],
 }
