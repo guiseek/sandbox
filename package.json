@@ -41,7 +41,8 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "commit": "cz"
   },
   "private": true,
   "dependencies": {
@@ -113,6 +114,7 @@
     "@typescript-eslint/parser": "4.3.0",
     "codelyzer": "~5.0.1",
     "cypress": "^4.1.0",
+    "cz-conventional-changelog": "3.3.0",
     "dotenv": "6.2.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.0.0",
@@ -144,5 +146,10 @@
   },
   "prisma": {
     "schema": "libs/api/data-access-core/src/prisma/schema.prisma"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
