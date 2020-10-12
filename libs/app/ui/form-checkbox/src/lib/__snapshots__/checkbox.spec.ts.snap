@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxComponent Host Views should display checkbox with custom id 1`] = `
+<div
+  class="form-checkbox"
+>
+  <input
+    aria-checked="false"
+    class="ng-untouched ng-pristine ng-valid"
+    id="x"
+    name="checkbox"
+    role="checkbox"
+    tabindex="0"
+    type="checkbox"
+    value="undefined"
+  />
+  <label
+    for="x"
+  >
+    <svg
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M22.3,61.3c5.7,4.1,13.2,11.8,16.7,18C53,60.5,66,41,77.7,20.8"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`CheckboxComponent Host Views should display checkbox with label 1`] = `
+<div
+  class="form-checkbox"
+>
+  <input
+    aria-checked="false"
+    class="ng-untouched ng-pristine ng-valid"
+    id="form-checkbox-1"
+    name="checkbox"
+    role="checkbox"
+    tabindex="0"
+    type="checkbox"
+    value="undefined"
+  />
+  <label
+    for="form-checkbox-1"
+  >
+    Label
+    <svg
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M22.3,61.3c5.7,4.1,13.2,11.8,16.7,18C53,60.5,66,41,77.7,20.8"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`CheckboxComponent Host Views should display only input 1`] = `
+<div
+  class="form-checkbox"
+>
+  <input
+    aria-checked="false"
+    class="ng-untouched ng-pristine ng-valid"
+    id="form-checkbox-0"
+    name="checkbox"
+    role="checkbox"
+    tabindex="0"
+    type="checkbox"
+    value="undefined"
+  />
+  <label
+    for="form-checkbox-0"
+  >
+    <svg
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M22.3,61.3c5.7,4.1,13.2,11.8,16.7,18C53,60.5,66,41,77.7,20.8"
+      />
+    </svg>
+  </label>
+</div>
+`;

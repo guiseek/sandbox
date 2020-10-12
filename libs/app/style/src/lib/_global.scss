@@ -1,0 +1,11 @@
+$app-color: #ff96a0;
+$link-color: #93c2db;
+
+@import '~bootswatch/dist/darkly/variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~bootswatch/dist/darkly/bootswatch';
+
+html,
+body {
+  height: 100%;
+}

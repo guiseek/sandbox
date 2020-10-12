@@ -15,7 +15,24 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@sandbox/api-app-module": ["apps/api/src/app/app.module.ts"],
+      "@sandbox/api/data-access-auth": ["libs/api/data-access-auth/src/index.ts"],
+      "@sandbox/api/data-access-core": ["libs/api/data-access-core/src/index.ts"],
+      "@sandbox/api/feature-auth": ["libs/api/feature-auth/src/index.ts"],
+      "@sandbox/api/feature-core": ["libs/api/feature-core/src/index.ts"],
+      "@sandbox/app/assets": ["libs/app/assets/src/index.ts"],
+      "@sandbox/app/data-access-core": ["libs/app/data-access-core/src/index.ts"],
+      "@sandbox/app/feature-about": ["libs/app/feature-about/src/index.ts"],
+      "@sandbox/app/feature-auth": ["libs/app/feature-auth/src/index.ts"],
+      "@sandbox/app/feature-core": ["libs/app/feature-core/src/index.ts"],
+      "@sandbox/app/feature-dashboard": ["libs/app/feature-dashboard/src/index.ts"],
+      "@sandbox/app/feature-shell": ["libs/app/feature-shell/src/index.ts"],
+      "@sandbox/app/layout": ["libs/app/layout/src/index.ts"],
+      "@sandbox/app/style": ["libs/app/style/src/index.ts"],
+      "@sandbox/form-checkbox": ["libs/app/ui/form-checkbox/src/index.ts"],
+      "@sandbox/form-radio": ["libs/app/ui/form-radio/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
