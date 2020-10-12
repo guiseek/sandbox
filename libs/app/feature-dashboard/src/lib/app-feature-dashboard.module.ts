@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
-import { FormRadioModule } from '@sandbox/form-radio'
-import { FormCheckboxModule } from '@sandbox/form-checkbox'
+import { AppUiFormModule } from '@sandbox/app-ui-form'
 // import { AppDataAccessCoreModule } from '@sandbox/app/data-access-core'
 import { AppFeatureDashboardComponent } from './app-feature-dashboard.component'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -11,8 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms'
   declarations: [AppFeatureDashboardComponent],
   imports: [
     CommonModule,
-    FormRadioModule,
-    FormCheckboxModule,
+    AppUiFormModule,
     ReactiveFormsModule,
     // AppDataAccessCoreModule,
     RouterModule.forChild([{ path: '', pathMatch: 'full', component: AppFeatureDashboardComponent }]),
