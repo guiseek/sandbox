@@ -38,14 +38,31 @@ let nextId = 0
   template: `
     <div class="form-checkbox-array">
       <ng-content select="h3"></ng-content>
+      <span class="asterisk"></span>
       <div role="group" [attr.aria-labelledby]="id">
         <ng-content></ng-content>
       </div>
     </div>
   `,
-  providers: [CheckboxArrayAccessor, CheckboxArrayProvider],
-
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [CheckboxArrayAccessor, CheckboxArrayProvider],
+  styles: [
+    `
+      .asterisk {
+        position: relative;
+      }
+      :host.ng-invalid .asterisk::before {
+        top: 0px;
+        right: 6px;
+        content: '*';
+        font-size: 34px;
+        line-height: 34px;
+        position: absolute;
+        visibility: visible;
+        color: rgb(219, 94, 94);
+      }
+    `,
+  ],
 })
 export class CheckboxArrayComponent extends CheckboxArrayAccessor
   implements AfterContentInit, AfterViewInit, OnDestroy {
@@ -64,6 +81,8 @@ export class CheckboxArrayComponent extends CheckboxArrayAccessor
   @Input() public set id(value: string) {
     this._id = value
   }
+
+  @Input() minLength = 0
 
   @Output() valueChange = new EventEmitter<any>()
 
@@ -92,6 +111,7 @@ export class CheckboxArrayComponent extends CheckboxArrayAccessor
           .subscribe(this.onItemChange.bind(this))
       })
     }
+    this.checkValidator()
   }
 
   onItemChange({ checked, value }) {
@@ -103,6 +123,13 @@ export class CheckboxArrayComponent extends CheckboxArrayAccessor
           return this.formArray.removeAt(i)
         }
       })
+    }
+    this.checkValidator()
+  }
+
+  checkValidator() {
+    if (this.formArray.length < this.minLength) {
+      this.control.setErrors({ minLength: true })
     }
   }
 

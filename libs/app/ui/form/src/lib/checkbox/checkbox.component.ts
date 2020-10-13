@@ -49,7 +49,7 @@ let nextId = 0
       />
       <label [for]="id">
         <ng-content></ng-content>
-
+        <i class="required" *ngIf="control.hasError('required')">*</i>
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.3,61.3c5.7,4.1,13.2,11.8,16.7,18C53,60.5,66,41,77.7,20.8" />
         </svg>
@@ -108,7 +108,7 @@ export class CheckboxComponent extends CheckboxAccessor implements AfterContentI
   }
 
   onChangeEvent({ target }: EventInputTarget) {
-    if (target.value) {
+    if (target.value && target.value !== 'undefined') {
       this.onChange(target.value)
     }
     this.checkedChange.emit(this)
