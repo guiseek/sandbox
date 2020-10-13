@@ -23,7 +23,7 @@ import { Component } from '@angular/core'
   `,
 })
 export class AppLayoutComponent {
-  appLogo = '/assets/images/logo.png'
+  appLogo = '/assets/images/donut.svg'
   appName = 'App'
   footerHtml = `Copyright &copy; ${new Date().getFullYear()}`
   linksLeft: { label: string; route: string }[] = [{ label: 'Dashboard', route: '/dashboard' }]
