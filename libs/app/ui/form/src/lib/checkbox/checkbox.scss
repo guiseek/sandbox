@@ -11,6 +11,10 @@
     color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
     transition: color 0.3s ease;
+    .required {
+      color: rgb(219, 94, 94);
+      font-size: 34px;
+    }
   }
   input[type='checkbox'],
   label::before {
