@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup } from '@angular/forms'
+import { Validator } from '@sandbox/app-ui-form'
 // import { AppDataAccessCoreService } from '@sandbox/app/data-access-core'
 
 @Component({
@@ -17,13 +18,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
           <pre>{{ group.value | json }}</pre>
         </div>
         <div>
-          <form-checkbox-array minLength="2" formArrayName="array">
+          <form-checkbox-array formArrayName="array">
             <h3 form-checkbox-label>Checkbox Array</h3>
             <form-checkbox-item value="Hackfest 1">Hackfest 1</form-checkbox-item>
             <form-checkbox-item value="Hackfest 2">Hackfest 2</form-checkbox-item>
             <form-checkbox-item value="Hackfest 3">Hackfest 3</form-checkbox-item>
             <form-checkbox-item value="Hackfest 4">Hackfest 4</form-checkbox-item>
           </form-checkbox-array>
+          <pre>{{ array.errors | json }}</pre>
           <pre>{{ array.value | json }}</pre>
         </div>
         <div>
@@ -64,11 +66,11 @@ export class AppFeatureDashboardComponent {
 
   form: FormGroup = this.fb.group({
     check: [true],
-    array: this.fb.array([], Validators.minLength(1)),
+    array: this.fb.array([], Validator.minSelected(3)),
     group: this.fb.group({
-      one: ['', Validators.requiredTrue],
+      one: ['', Validator.requiredTrue],
       two: [],
-      three: ['', Validators.requiredTrue],
+      three: ['', Validator.requiredTrue],
       four: [],
     }),
     radio: [],

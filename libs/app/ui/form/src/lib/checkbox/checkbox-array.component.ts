@@ -44,7 +44,7 @@ let nextId = 0
       </div>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [CheckboxArrayAccessor, CheckboxArrayProvider],
   styles: [
     `
@@ -111,7 +111,7 @@ export class CheckboxArrayComponent extends CheckboxArrayAccessor
           .subscribe(this.onItemChange.bind(this))
       })
     }
-    this.checkValidator()
+    // this.checkValidator()
   }
 
   onItemChange({ checked, value }) {
@@ -124,7 +124,7 @@ export class CheckboxArrayComponent extends CheckboxArrayAccessor
         }
       })
     }
-    this.checkValidator()
+    // this.checkValidator()
   }
 
   checkValidator() {
